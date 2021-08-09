@@ -1,0 +1,32 @@
+<p class="">
+  Hello world
+</p>
+
+
+<!-- <video controls style="width:50vh;height: 50vh" autoplay name="media">
+  <source src="https://salimzak.blob.core.windows.net/videos/pexels-artem-podrez-7235105.mp4" type="video/mp4">
+</video> -->
+
+<form style = "width: 50vh" [formGroup]="form" (ngSubmit)="onSubmit()" >
+  <input type="file" (change) = "imageSelected($event)" formControlName = "file" id="file">
+  <button type = "submit" > Submit </button>
+</form> 
+
+
+<ul style="width:300px">
+  <li *ngFor="let item of imageList">
+
+    <div style='display: flex; justify-content: space-between; align-items: center;'>
+
+      <img style="width:100px;height: 100px; padding: 20px;" [src] = '"https://salimzak.blob.core.windows.net/pictures/"+ item' alt="">
+
+      <p> {{item}} </p>
+
+      <button (click)="downloadImage(item)" mat-button>Download</button>
+      <button (click)="deleteImage(item)" mat-button>Delete</button>
+
+
+    </div>
+
+  </li>
+</ul>
